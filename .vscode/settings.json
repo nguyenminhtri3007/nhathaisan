@@ -1,0 +1,7 @@
+{
+  // Tắt rule "react/prop-types" (S6774): yêu cầu khai báo PropTypes cho mọi component.
+  // Dự án dùng React 19 — PropTypes đã lỗi thời; nếu cần kiểm tra kiểu, hãy dùng TypeScript.
+  "sonarlint.rules": {
+    "javascript:S6774": { "level": "off" }
+  }
+}

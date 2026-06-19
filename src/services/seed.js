@@ -1,39 +1,20 @@
-// ===== Thông tin thương hiệu — chỉnh sửa tại đây =====
-export const BRAND = {
-  name: "Nhất Nguyệt",
-  tagline: "Hải Sản Tươi Sống",
-  slogan: "Tươi rói mỗi ngày · Từ biển khơi đến bàn ăn",
-  phone: "0962112492",
-  phoneDisplay: "0962.112.492",
-  phone2: "0358890978",
-  phone2Display: "0358.890.978",
-  address: "Hưng Phú, Hưng Yên",
-  addressDetail: "Cạnh Bệnh viện Đa khoa Nam Tiền Hải",
-  hours: "Mở cửa 5:00 – 20:00 hằng ngày",
-  // Liên kết ảnh — đặt file vào thư mục public/images/
-  logo: "/images/logo.jpg",
-  banner: "/images/banner.png",
-};
+// ===== Dữ liệu mẫu (seed) =====
+// Tạm thời nằm trong code. Khi có API, lớp service (catalog.js) sẽ fetch
+// từ server thay vì đọc các mảng này.
 
-// Đường dẫn gọi điện / bản đồ
-export const TEL_HREF = `tel:${BRAND.phone}`;
-export const TEL2_HREF = `tel:${BRAND.phone2}`;
-export const MAP_HREF =
-  "https://www.google.com/maps/search/?api=1&query=" +
-  encodeURIComponent("Bệnh viện Đa khoa Nam Tiền Hải, Hưng Yên");
-
-// ===== Danh mục sản phẩm =====
-export const PRODUCTS = [
+export const PRODUCTS_SEED = [
   {
     name: "Tôm",
     desc: "Tôm sú, tôm he tươi sống, thịt chắc ngọt.",
     emoji: "🦐",
+    img: "/images/tom.png",
     tint: "from-rose-100 to-rose-50",
   },
   {
     name: "Cua",
     desc: "Cua biển gạch chắc, càng to, bơi khỏe.",
     emoji: "🦀",
+    img: "/images/cua.png",
     tint: "from-orange-100 to-amber-50",
   },
   {
@@ -61,12 +42,12 @@ export const PRODUCTS = [
     name: "Bề bề",
     desc: "Bề bề (tôm tít) to, thịt dày, tươi sống.",
     emoji: "🦞",
+    img: "/images/bebe.jpg",
     tint: "from-amber-100 to-yellow-50",
   },
 ];
 
-// ===== Cam kết / lý do chọn =====
-export const FEATURES = [
+export const FEATURES_SEED = [
   {
     title: "Tươi sống 100%",
     desc: "Nhập trực tiếp từ tàu, giữ sống trong bể sục oxy đến tận tay khách.",

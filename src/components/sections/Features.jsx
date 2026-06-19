@@ -1,8 +1,12 @@
-import { FEATURES } from "../data";
-import { ICONS } from "./Icons";
-import SectionTitle from "./SectionTitle";
+import useFeatures from "../../hooks/useFeatures";
+import { ICONS } from "../ui/Icons";
+import Container from "../ui/Container";
+import Eyebrow from "../ui/Eyebrow";
 
 export default function Features() {
+  const { data: features, loading } = useFeatures();
+  const items = loading ? [] : features;
+
   return (
     <section
       id="cam-ket"
@@ -12,13 +16,9 @@ export default function Features() {
       <div className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-ocean-700/40 blur-3xl" />
       <div className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-coral-500/20 blur-3xl" />
 
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+      <Container className="relative">
         <div className="reveal mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-coral-300">
-            <span className="h-px w-6 bg-coral-400" />
-            Cam kết
-            <span className="h-px w-6 bg-coral-400" />
-          </span>
+          <Eyebrow className="text-coral-300">Cam kết</Eyebrow>
           <h2 className="mt-3 font-display text-3xl font-bold leading-tight sm:text-4xl lg:text-[2.75rem]">
             Vì sao chọn {""}
             <span className="text-coral-300">Nhất Nguyệt?</span>
@@ -29,7 +29,7 @@ export default function Features() {
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {FEATURES.map((f, i) => {
+          {items.map((f, i) => {
             const Icon = ICONS[f.icon];
             return (
               <div
@@ -46,7 +46,7 @@ export default function Features() {
             );
           })}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

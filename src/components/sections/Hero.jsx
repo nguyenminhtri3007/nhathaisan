@@ -1,8 +1,7 @@
-import { BRAND, TEL_HREF, MAP_HREF } from "../data";
-import { PhoneIcon, MapPinIcon, ArrowIcon, CheckIcon } from "./Icons";
-import SmartImage from "./SmartImage";
-
-const HIGHLIGHTS = ["Tôm", "Cua", "Cá", "Mực", "Ghẹ", "Bề bề"];
+import { BRAND, TEL_HREF, MAP_HREF, HIGHLIGHTS } from "../../config/site";
+import { PhoneIcon, MapPinIcon, ArrowIcon, CheckIcon } from "../ui/Icons";
+import Button from "../ui/Button";
+import SmartImage from "../ui/SmartImage";
 
 export default function Hero() {
   return (
@@ -20,19 +19,19 @@ export default function Hero() {
         />
       </div>
       {/* Gradient overlays for readability */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ocean-950/90 via-ocean-900/70 to-ocean-900/30" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ocean-950/80 via-transparent to-ocean-950/40" />
+      <div className="absolute inset-0 -z-10 bg-linear-to-l from-ocean-950/75 via-ocean-900/45 to-transparent" />
+      <div className="absolute inset-0 -z-10 bg-linear-to-t from-ocean-950/70 via-transparent to-ocean-950/25" />
 
-      <div className="mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-center px-4 pb-24 pt-32 sm:px-6">
-        <div className="max-w-2xl">
+      <div className="mx-auto flex min-h-svh max-w-6xl flex-col justify-center px-4 pb-24 pt-32 sm:px-6">
+        <div className="ml-auto max-w-xl text-right">
           <span className="inline-flex items-center gap-2 rounded-full border border-coral-300/40 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-coral-200 backdrop-blur-sm">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-coral-400" />
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-coral-400" />{" "}
             Bán buôn · Bán lẻ
           </span>
 
           <h1 className="mt-6 font-display text-5xl font-bold leading-[1.05] text-white drop-shadow-sm sm:text-6xl lg:text-7xl">
             {BRAND.name}
-            <span className="mt-2 block bg-gradient-to-r from-coral-300 to-coral-500 bg-clip-text text-3xl font-extrabold not-italic text-transparent sm:text-4xl lg:text-5xl">
+            <span className="mt-2 block bg-linear-to-r from-coral-300 to-coral-500 bg-clip-text text-3xl font-extrabold not-italic text-transparent sm:text-4xl lg:text-5xl">
               Hải Sản Tươi Sống
             </span>
           </h1>
@@ -43,7 +42,7 @@ export default function Hero() {
           </p>
 
           {/* Product chips */}
-          <ul className="mt-6 flex flex-wrap gap-2.5">
+          <ul className="mt-6 flex flex-wrap justify-end gap-2.5">
             {HIGHLIGHTS.map((p) => (
               <li
                 key={p}
@@ -56,21 +55,15 @@ export default function Hero() {
           </ul>
 
           {/* CTAs */}
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a
-              href={TEL_HREF}
-              className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-coral-500 px-7 py-4 text-base font-bold text-white shadow-xl shadow-coral-500/30 transition-all hover:-translate-y-0.5 hover:bg-coral-600"
-            >
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
+            <Button href={TEL_HREF} variant="primary" size="lg" className="shadow-xl shadow-coral-500/30">
               <PhoneIcon className="h-5 w-5" />
               Gọi đặt hàng: {BRAND.phoneDisplay}
-            </a>
-            <a
-              href="#san-pham"
-              className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20"
-            >
+            </Button>
+            <Button href="#san-pham" variant="glass" size="lg">
               Xem sản phẩm
               <ArrowIcon className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </a>
+            </Button>
           </div>
 
           {/* Location line */}
@@ -91,7 +84,7 @@ export default function Hero() {
         <svg
           viewBox="0 0 1440 110"
           preserveAspectRatio="none"
-          className="h-[60px] w-full sm:h-[90px]"
+          className="h-15 w-full sm:h-22.5"
         >
           <path
             fill="#f6fbfd"

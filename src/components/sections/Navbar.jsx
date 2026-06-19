@@ -1,14 +1,9 @@
 import { useEffect, useState } from "react";
-import { BRAND, TEL_HREF } from "../data";
-import { PhoneIcon, MenuIcon, CloseIcon } from "./Icons";
-import SmartImage from "./SmartImage";
-
-const LINKS = [
-  { href: "#san-pham", label: "Sản phẩm" },
-  { href: "#cam-ket", label: "Cam kết" },
-  { href: "#gioi-thieu", label: "Giới thiệu" },
-  { href: "#lien-he", label: "Liên hệ" },
-];
+import { BRAND, TEL_HREF, NAV_LINKS } from "../../config/site";
+import { PhoneIcon, MenuIcon, CloseIcon } from "../ui/Icons";
+import Container from "../ui/Container";
+import Button from "../ui/Button";
+import SmartImage from "../ui/SmartImage";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -35,7 +30,7 @@ export default function Navbar() {
           : "bg-transparent py-3"
       }`}
     >
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6">
+      <Container as="nav" className="flex items-center justify-between">
         {/* Logo */}
         <a href="#top" className="group flex items-center gap-3">
           <span className="relative h-11 w-11 overflow-hidden rounded-full ring-2 ring-coral-400/70 shadow-md transition-transform group-hover:scale-105">
@@ -72,7 +67,7 @@ export default function Navbar() {
             scrolled ? "text-ocean-800" : "text-white/90"
           }`}
         >
-          {LINKS.map((l) => (
+          {NAV_LINKS.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
@@ -84,14 +79,18 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Call CTA (desktop) */}
-        <a
-          href={TEL_HREF}
-          className="hidden items-center gap-2 rounded-full bg-coral-500 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-coral-500/30 transition-all hover:-translate-y-0.5 hover:bg-coral-600 hover:shadow-coral-500/40 md:inline-flex"
-        >
-          <PhoneIcon className="h-4 w-4" />
-          {BRAND.phoneDisplay}
-        </a>
+        {/* Call CTA (chỉ hiện từ md trở lên) */}
+        <div className="hidden md:block">
+          <Button
+            href={TEL_HREF}
+            variant="primary"
+            size="sm"
+            className="shadow-lg shadow-coral-500/30 hover:shadow-coral-500/40"
+          >
+            <PhoneIcon className="h-4 w-4" />
+            {BRAND.phoneDisplay}
+          </Button>
+        </div>
 
         {/* Mobile toggle */}
         <button
@@ -105,11 +104,11 @@ export default function Navbar() {
         >
           {open ? <CloseIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
         </button>
-      </nav>
+      </Container>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — absolute để panel khi đóng không cộng chiều cao vào header */}
       <div
-        className={`md:hidden ${open ? "pointer-events-auto" : "pointer-events-none"}`}
+        className={`absolute inset-x-0 top-full md:hidden ${open ? "pointer-events-auto" : "pointer-events-none"}`}
       >
         {/* backdrop */}
         <div
@@ -124,7 +123,7 @@ export default function Navbar() {
           }`}
         >
           <ul className="flex flex-col">
-            {LINKS.map((l) => (
+            {NAV_LINKS.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}

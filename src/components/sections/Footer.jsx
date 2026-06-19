@@ -1,6 +1,6 @@
-import { BRAND, TEL_HREF, TEL2_HREF, MAP_HREF } from "../data";
-import { PhoneIcon, MapPinIcon, ClockIcon } from "./Icons";
-import SmartImage from "./SmartImage";
+import { BRAND, TEL_HREF, TEL2_HREF, MAP_HREF } from "../../config/site";
+import { PhoneIcon, MapPinIcon, ClockIcon } from "../ui/Icons";
+import SmartImage from "../ui/SmartImage";
 
 export default function Footer() {
   return (

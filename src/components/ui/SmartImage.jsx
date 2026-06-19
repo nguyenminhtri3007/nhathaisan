@@ -17,7 +17,7 @@ export default function SmartImage({
   if (failed || !src) {
     return (
       <div
-        className={`relative flex items-center justify-center bg-gradient-to-br ${fallbackClass} ${className}`}
+        className={`relative flex items-center justify-center bg-linear-to-br ${fallbackClass} ${className}`}
         role="img"
         aria-label={alt}
         {...rest}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { BRAND, TEL_HREF } from "../data";
-import { PhoneIcon } from "./Icons";
+import { BRAND, TEL_HREF } from "../../config/site";
+import { PhoneIcon } from "../ui/Icons";
 
 // Nút gọi nổi — hiện sau khi cuộn qua hero, tiện cho khách đặt hàng nhanh.
 export default function FloatingCall() {

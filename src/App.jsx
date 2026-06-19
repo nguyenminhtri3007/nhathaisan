@@ -1,13 +1,13 @@
-import useReveal from "./useReveal";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Stats from "./components/Stats";
-import Products from "./components/Products";
-import Features from "./components/Features";
-import About from "./components/About";
-import CTA from "./components/CTA";
-import Footer from "./components/Footer";
-import FloatingCall from "./components/FloatingCall";
+import useReveal from "./hooks/useReveal";
+import Navbar from "./components/sections/Navbar";
+import Hero from "./components/sections/Hero";
+import Stats from "./components/sections/Stats";
+import Products from "./components/sections/Products";
+import Features from "./components/sections/Features";
+import About from "./components/sections/About";
+import Cta from "./components/sections/CTA";
+import Footer from "./components/sections/Footer";
+import FloatingCall from "./components/sections/FloatingCall";
 
 export default function App() {
   useReveal();
@@ -21,7 +21,7 @@ export default function App() {
         <Products />
         <Features />
         <About />
-        <CTA />
+        <Cta />
       </main>
       <Footer />
       <FloatingCall />

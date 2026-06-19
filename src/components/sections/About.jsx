@@ -1,12 +1,8 @@
-import { BRAND, TEL_HREF, MAP_HREF } from "../data";
-import { PhoneIcon, MapPinIcon, CheckIcon } from "./Icons";
-import SmartImage from "./SmartImage";
-
-const POINTS = [
-  "Nguồn hàng nhập trực tiếp, tươi mới mỗi ngày",
-  "Phục vụ tận tâm cho cả khách buôn và khách lẻ",
-  "Hỗ trợ thu mua & giao hàng trong khu vực",
-];
+import { BRAND, TEL_HREF, MAP_HREF, ABOUT_POINTS } from "../../config/site";
+import { PhoneIcon, MapPinIcon, CheckIcon } from "../ui/Icons";
+import Button from "../ui/Button";
+import Eyebrow from "../ui/Eyebrow";
+import SmartImage from "../ui/SmartImage";
 
 export default function About() {
   return (
@@ -14,11 +10,11 @@ export default function About() {
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
         {/* Image collage */}
         <div className="reveal relative">
-          <div className="overflow-hidden rounded-[2rem] shadow-glow ring-1 ring-ocean-100">
+          <div className="overflow-hidden rounded-4xl shadow-glow ring-1 ring-ocean-100">
             <SmartImage
               src={BRAND.banner}
               alt={`Cửa hàng ${BRAND.name}`}
-              className="aspect-[4/3] w-full"
+              className="aspect-4/3 w-full"
               imgClass="h-full w-full object-cover"
               fallbackClass="from-ocean-600 to-ocean-900"
               fallbackEmoji="🏪"
@@ -47,10 +43,9 @@ export default function About() {
 
         {/* Text */}
         <div>
-          <span className="reveal inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-coral-600">
-            <span className="h-px w-6 bg-coral-400" />
+          <Eyebrow className="reveal text-coral-600" lines="left">
             Giới thiệu
-          </span>
+          </Eyebrow>
           <h2 className="reveal mt-3 font-display text-3xl font-bold leading-tight text-ocean-900 sm:text-4xl">
             Thương hiệu hải sản uy tín của vùng biển
           </h2>
@@ -62,7 +57,7 @@ export default function About() {
           </p>
 
           <ul className="reveal mt-7 space-y-3">
-            {POINTS.map((p) => (
+            {ABOUT_POINTS.map((p) => (
               <li key={p} className="flex items-start gap-3">
                 <span className="mt-0.5 grid h-6 w-6 flex-none place-items-center rounded-full bg-coral-100 text-coral-600">
                   <CheckIcon className="h-4 w-4" />
@@ -73,22 +68,14 @@ export default function About() {
           </ul>
 
           <div className="reveal mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href={TEL_HREF}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-ocean-700 px-6 py-3.5 text-base font-bold text-white shadow-lg shadow-ocean-700/25 transition-all hover:-translate-y-0.5 hover:bg-ocean-800"
-            >
+            <Button href={TEL_HREF} variant="ocean" size="md" className="shadow-lg shadow-ocean-700/25">
               <PhoneIcon className="h-5 w-5" />
               {BRAND.phoneDisplay}
-            </a>
-            <a
-              href={MAP_HREF}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-ocean-200 px-6 py-3.5 text-base font-semibold text-ocean-700 transition-colors hover:bg-ocean-50"
-            >
+            </Button>
+            <Button href={MAP_HREF} target="_blank" rel="noreferrer" variant="outlineOcean" size="md">
               <MapPinIcon className="h-5 w-5 text-coral-500" />
               Xem địa chỉ
-            </a>
+            </Button>
           </div>
         </div>
       </div>
