@@ -9,11 +9,12 @@ export const BRAND = {
   phone2: "0358890978",
   phone2Display: "0358.890.978",
   address: "Hưng Phú, Hưng Yên",
-  addressDetail: "Cạnh Bệnh viện Đa khoa Nam Tiền Hải",
+  addressDetail: "Cách ngã tư Nam Trung 50m, hướng đi Cồn vành",
   hours: "Mở cửa 5:00 – 20:00 hằng ngày",
   // Liên kết ảnh — đặt file vào thư mục public/images/
   logo: "/images/logo.jpg",
   banner: "/images/banner.png",
+  bannerMobile: "/images/banner2.jpg",
 };
 
 // Đường dẫn gọi điện / bản đồ
@@ -38,7 +39,7 @@ export const HIGHLIGHTS = ["Tôm", "Cua", "Cá", "Mực", "Ghẹ", "Bề bề"];
 export const STATS = [
   { value: "5:00", label: "Mở cửa từ sáng sớm" },
   { value: "100%", label: "Hải sản tươi sống" },
-  { value: "6+", label: "Loại hải sản chính" },
+  { value: "16+", label: "Loại hải sản chính" },
   { value: "Tận nơi", label: "Thu mua & giao hàng" },
 ];
 

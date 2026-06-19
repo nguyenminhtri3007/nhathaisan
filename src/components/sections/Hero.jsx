@@ -6,12 +6,21 @@ import SmartImage from "../ui/SmartImage";
 export default function Hero() {
   return (
     <section id="top" className="relative isolate overflow-hidden">
-      {/* Background image */}
+      {/* Background image — mobile dùng banner2, desktop dùng banner */}
       <div className="absolute inset-0 -z-20">
+        <SmartImage
+          src={BRAND.bannerMobile}
+          alt="Cửa hàng hải sản Nhất Nguyệt"
+          className="h-full w-full lg:hidden"
+          imgClass="h-full w-full object-cover object-center"
+          fallbackClass="from-ocean-700 via-ocean-800 to-ocean-950"
+          fallbackEmoji="🌊"
+          fallbackLabel="banner2.jpg"
+        />
         <SmartImage
           src={BRAND.banner}
           alt="Cửa hàng hải sản Nhất Nguyệt"
-          className="h-full w-full"
+          className="hidden h-full w-full lg:block"
           imgClass="h-full w-full object-cover object-center"
           fallbackClass="from-ocean-700 via-ocean-800 to-ocean-950"
           fallbackEmoji="🌊"
