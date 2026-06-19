@@ -1,0 +1,104 @@
+import { BRAND, TEL_HREF, MAP_HREF } from "../data";
+import { PhoneIcon, MapPinIcon, ArrowIcon, CheckIcon } from "./Icons";
+import SmartImage from "./SmartImage";
+
+const HIGHLIGHTS = ["Tôm", "Cua", "Cá", "Mực", "Ghẹ", "Bề bề"];
+
+export default function Hero() {
+  return (
+    <section id="top" className="relative isolate overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0 -z-20">
+        <SmartImage
+          src={BRAND.banner}
+          alt="Cửa hàng hải sản Nhất Nguyệt"
+          className="h-full w-full"
+          imgClass="h-full w-full object-cover object-center"
+          fallbackClass="from-ocean-700 via-ocean-800 to-ocean-950"
+          fallbackEmoji="🌊"
+          fallbackLabel="banner.jpg"
+        />
+      </div>
+      {/* Gradient overlays for readability */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ocean-950/90 via-ocean-900/70 to-ocean-900/30" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ocean-950/80 via-transparent to-ocean-950/40" />
+
+      <div className="mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-center px-4 pb-24 pt-32 sm:px-6">
+        <div className="max-w-2xl">
+          <span className="inline-flex items-center gap-2 rounded-full border border-coral-300/40 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-coral-200 backdrop-blur-sm">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-coral-400" />
+            Bán buôn · Bán lẻ
+          </span>
+
+          <h1 className="mt-6 font-display text-5xl font-bold leading-[1.05] text-white drop-shadow-sm sm:text-6xl lg:text-7xl">
+            {BRAND.name}
+            <span className="mt-2 block bg-gradient-to-r from-coral-300 to-coral-500 bg-clip-text text-3xl font-extrabold not-italic text-transparent sm:text-4xl lg:text-5xl">
+              Hải Sản Tươi Sống
+            </span>
+          </h1>
+
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-ocean-50/90 sm:text-xl">
+            Chuyên thu mua &amp; cung cấp hải sản tươi sống mỗi ngày — từ biển khơi
+            đến thẳng bàn ăn của bạn.
+          </p>
+
+          {/* Product chips */}
+          <ul className="mt-6 flex flex-wrap gap-2.5">
+            {HIGHLIGHTS.map((p) => (
+              <li
+                key={p}
+                className="flex items-center gap-1.5 rounded-full bg-white/12 px-3.5 py-1.5 text-sm font-semibold text-white backdrop-blur-sm ring-1 ring-white/15"
+              >
+                <CheckIcon className="h-3.5 w-3.5 text-coral-300" />
+                {p}
+              </li>
+            ))}
+          </ul>
+
+          {/* CTAs */}
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a
+              href={TEL_HREF}
+              className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-coral-500 px-7 py-4 text-base font-bold text-white shadow-xl shadow-coral-500/30 transition-all hover:-translate-y-0.5 hover:bg-coral-600"
+            >
+              <PhoneIcon className="h-5 w-5" />
+              Gọi đặt hàng: {BRAND.phoneDisplay}
+            </a>
+            <a
+              href="#san-pham"
+              className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20"
+            >
+              Xem sản phẩm
+              <ArrowIcon className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+            </a>
+          </div>
+
+          {/* Location line */}
+          <a
+            href={MAP_HREF}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-7 inline-flex items-center gap-2 text-sm text-ocean-50/80 transition-colors hover:text-coral-200"
+          >
+            <MapPinIcon className="h-4 w-4 text-coral-300" />
+            {BRAND.address} — {BRAND.addressDetail}
+          </a>
+        </div>
+      </div>
+
+      {/* Wave divider */}
+      <div className="wave-bottom" aria-hidden="true">
+        <svg
+          viewBox="0 0 1440 110"
+          preserveAspectRatio="none"
+          className="h-[60px] w-full sm:h-[90px]"
+        >
+          <path
+            fill="#f6fbfd"
+            d="M0,64 C240,110 480,110 720,80 C960,50 1200,20 1440,48 L1440,110 L0,110 Z"
+          />
+        </svg>
+      </div>
+    </section>
+  );
+}

@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+/* ===== Design tokens — Nhất Nguyệt brand ===== */
+@theme {
+  --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+
+  /* Ocean / deep sea */
+  --color-ocean-50: #eef7fb;
+  --color-ocean-100: #d4ecf5;
+  --color-ocean-200: #a5d6e8;
+  --color-ocean-300: #6bb9d6;
+  --color-ocean-400: #3897bd;
+  --color-ocean-500: #1c79a2;
+  --color-ocean-600: #14627f;
+  --color-ocean-700: #0a4d68;
+  --color-ocean-800: #083d52;
+  --color-ocean-900: #06384d;
+  --color-ocean-950: #042430;
+
+  /* Warm sand / prawn accent */
+  --color-coral-300: #ffce6b;
+  --color-coral-400: #f9b94a;
+  --color-coral-500: #f4a23b;
+  --color-coral-600: #e08526;
+
+  --color-foam: #f6fbfd;
+
+  --shadow-glow: 0 20px 60px -15px rgba(10, 77, 104, 0.45);
+  --shadow-card: 0 12px 40px -12px rgba(6, 56, 77, 0.25);
+}
+
+/* ===== Base ===== */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-foam);
+  color: var(--color-ocean-950);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Section reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* Gentle floating animation for hero accents */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-float-slow { animation: float 9s ease-in-out infinite; }
+
+/* Wave divider helper */
+.wave-bottom {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+}
+
+/* Custom selection */
+::selection {
+  background: var(--color-coral-400);
+  color: var(--color-ocean-950);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-track { background: var(--color-ocean-50); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-ocean-300);
+  border-radius: 999px;
+  border: 3px solid var(--color-ocean-50);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-ocean-400); }
